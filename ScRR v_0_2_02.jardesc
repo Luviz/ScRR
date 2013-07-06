@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="ScRR_v_0_2_02.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/ScRR/ScRR v_0_2_02.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="false" saveDescription="true" storeRefactorings="true" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=ScRR/src&lt;mainpkg{Main.java[Main" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="false" exportJavaFiles="true" exportOutputFolder="true">
+        <file path="/ScRR/.classpath"/>
+        <file path="/ScRR/p.png"/>
+        <javaElement handleIdentifier="=ScRR/src"/>
+        <file path="/ScRR/r.png"/>
+        <file path="/ScRR/z.png"/>
+        <folder path="/ScRR/resources"/>
+        <file path="/ScRR/.project"/>
+        <file path="/ScRR/t.png"/>
+    </selectedElements>
+</jardesc>

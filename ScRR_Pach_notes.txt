@@ -1,0 +1,17 @@
+What's new 
+
+v. 	0.2.03.a
+	imges.dat add
+		this a arraylist of the png imges that exsisted in the inclued (prob the imges.dat is 1 mb lager then the imges the selves
+											[a diff of 1018 kb])
+			this change was added to reduse the files in the foulder.
+		
+
+
+v.	0.2.02
+	keylister has been add!
+		ctrl - s -> start the setting 
+			 - q,w,e,r -> truns the races on or off!
+		esc closes the program
+		space or enter will randomsie!
+		
