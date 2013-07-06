@@ -1,9 +1,41 @@
 What's new 
 
+v.	1.0
+	strat can now be loaded by giving the fname
+	some spellcheck
+	BUG: the system will some time reaing run when the main window and all other windos has been closes 
+		i think that i need the despos of scrr in the main file but what if the other classes are still running!
+ 	
+
+v.	0.3.01
+	imges.dat missing is fixt by an alet msg
+	strats added now the scrr can now give out stratgies based on racees!
+		xml ripoff The data is part of item and contancs race , type and txt
+			template:
+			<item>
+				<race></race>
+				<type></type>
+				<txt>
+					<html>
+					
+					</html>
+				<txt>
+			</item>
+	settings - stratgies checkbox has been added!
+		ctrl - x -> truns strat on and of 
+
+
+v. 	0.2.03.b
+	about JOptionpane was added 
+	a few more refindmant to the code it self!
+	
+	<WARING>	imges.dat super importent to have!	</WARING>	//done
+
 v. 	0.2.03.a
 	imges.dat add
 		this a arraylist of the png imges that exsisted in the inclued (prob the imges.dat is 1 mb lager then the imges the selves
-											[a diff of 1018 kb])
+											[a diff of 1018 kb]) 	-> zip was 101 kb lager
+														-> jar was 71  kb lager
 			this change was added to reduse the files in the foulder.
 		
 
