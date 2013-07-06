@@ -15,6 +15,21 @@ public class ImgEncryptor {
 	public ImgEncryptor (){
 		img = new ArrayList<ImageIcon>();
 	}
+	/**
+	 * Checks is all files are there!
+	 * @return {@link Boolean};
+	 */
+	public boolean checkFiles(){
+		File testT = null ,testZ = null ,testP = null ,testR = null;
+
+		testT = new File("t.png");
+		testZ = new File("z.png");
+		testP = new File("p.png");
+		testR = new File("r.png");
+		
+		return testT.exists() && testZ.exists() && testP.exists() && testR.exists();
+		
+	}
 	/** make sure to have t/z/p/r.png!
 	 * 
 	 * @throws IOException the file is missing 

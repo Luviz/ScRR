@@ -59,7 +59,7 @@ public class ScRR extends JFrame {
 				File test = null;
 				try {
 				test = new File(fStrat);
-				}catch(Exception e1){}	//The Exception in ignored do to JOptions cancel return being null
+				}catch(Exception e1){}	//The Exception in ignored due to JOptions cancel return being null
 				if (fStrat == null){
 					fStrat = temp;
 				}else if(!test.exists()){
@@ -77,31 +77,41 @@ public class ScRR extends JFrame {
 				JOptionPane.showMessageDialog(null, aboutTL, "About",
 						JOptionPane.PLAIN_MESSAGE);
 			}
+			
 			if (e.getActionCommand().equals("make imges.dat")){
 				String txt ="<html>" +
-						"<p>make sure u have all 4 images<br>" +
-						"t.png, z.png, p.png, r.png</p>" +
+						"<p>Make sure you have all 4 images<br>" +
+						"t.png, z.png, p.png, r.png<br>" +
+						"before pressing OK</p>" +
 						"</html>";
 				JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
 						JOptionPane.PLAIN_MESSAGE);
+				ImgEncryptor ie = new ImgEncryptor();
+				if (ie.checkFiles()) {
+					try {
+						ie.compress();
+					} catch (IOException e1) {
+						String txt1 = "<html>" +
+									"<p>There is a major problem and the imges.dat may be cropped!</p>" +
+									"<p style = 'color: red; text-align:center;'><i><u>" +
+										"If you abel to run this again please run again it on command line and send me the output" +
+									"</u></i></p>" +
+								"</html>";
+						JOptionPane.showMessageDialog(null, txt1,
+								"MAKE imges.dat", JOptionPane.PLAIN_MESSAGE);
+						e1.printStackTrace();
+					}
+					txt =	"<html>" +
+								"<p>The imges.dat has been updated restart the ScRR to see the changes</p>" +
+							"</html>";
+					JOptionPane.showMessageDialog(null, txt,
+							"MAKE imges.dat", JOptionPane.PLAIN_MESSAGE);
+				}else{
+					JOptionPane.showMessageDialog(null, "You are missing at least one of the files!",
+							"MAKE imges.dat", JOptionPane.PLAIN_MESSAGE);
+				}
 			}
-			ImgEncryptor ie = new ImgEncryptor();
-			try {
-				ie.compress();
-				String txt ="<html>" +
-						"<p>imges.dat was created/ updated!</p>" +
-						"</html>";
-				JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
-						JOptionPane.PLAIN_MESSAGE);
-			} catch (IOException e1) {
-				String txt ="<html>" +
-						"<p>I hop that u named the png right!</p>" +
-						"<p>if not run ScRR w/ command line and send me the output!</p>" +
-						"</html>";
-				JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
-						JOptionPane.PLAIN_MESSAGE);
-				e1.printStackTrace();
-			}
+			
 		}
 	}
 
@@ -134,7 +144,7 @@ public class ScRR extends JFrame {
 			}
 			if (e.getKeyCode() == KeyEvent.VK_ENTER
 					|| e.getKeyCode() == KeyEvent.VK_SPACE) {
-				randomise();
+				timer.start();
 			}
 			
 		}
@@ -148,14 +158,11 @@ public class ScRR extends JFrame {
 
 	private Timer timer;
 	private int tTimer =0;	//timer counter! 
-	
 	private Container mSrccen;
 	private JLabel jL_m;
 	private JButton jB_rand;
-
 	private Randomiser rand;
 	StratGUI s;
-
 	private ImageIcon img_race;
 	private ArrayList<ImageIcon> races;
 	private String fStrat = "strat.sml"; 
@@ -179,18 +186,12 @@ public class ScRR extends JFrame {
 		setting = new Settings(this, rand);
 		setting.setVisible(true);
 	}
-	
 	public boolean isStrats() {
 		return strats;
 	}
-
-
-
 	public void setStrats(boolean strats) {
 		this.strats = strats;
 	}
-
-
 
 	public ScRR() {
 		config();
@@ -311,13 +312,33 @@ public class ScRR extends JFrame {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, e + "\n<html><p style = 'color: red; text-align:center;'><i><u>" +
 					"imges.dat is missing</u></i><p></html>","imges.dat is missing".toUpperCase(),0);
+			
+			/*String txt ="<html>" +
+					"<p>make sure u have all 4 images<br>" +
+					"t.png, z.png, p.png, r.png</p>" +
+					"</html>";
+			JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
+					JOptionPane.PLAIN_MESSAGE);
+			ImgEncryptor ie = new ImgEncryptor();
+			try {
+				ie.compress();
+				JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
+						JOptionPane.PLAIN_MESSAGE);
+			} catch (IOException e1) {
+				JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
+						JOptionPane.PLAIN_MESSAGE);
+				e1.printStackTrace();
+			}*/
+			//TODO Add a backup system so if imges.dat is missing bee abale try to craete the a new if possebel!
 			races = null;
 			System.exit(0);
+			
 		}
+
 	}
 	
 	/**
-	 * run the randomise 0 -4 and 
+	 * run the randomize 0 -4 and 
 	 * set the iconImag to images value
 	 */
 	private void randomise() {
@@ -334,7 +355,6 @@ public class ScRR extends JFrame {
 		jL_m.setIcon(img_race);
 		setJlImage(rand.getValue());
 	}
-	
 	
 	/**@param iIndex	image to it's value*/
 	private void setJlImage(int iIndex){
