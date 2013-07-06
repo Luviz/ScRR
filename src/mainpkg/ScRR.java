@@ -77,6 +77,31 @@ public class ScRR extends JFrame {
 				JOptionPane.showMessageDialog(null, aboutTL, "About",
 						JOptionPane.PLAIN_MESSAGE);
 			}
+			if (e.getActionCommand().equals("make imges.dat")){
+				String txt ="<html>" +
+						"<p>make sure u have all 4 images<br>" +
+						"t.png, z.png, p.png, r.png</p>" +
+						"</html>";
+				JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
+						JOptionPane.PLAIN_MESSAGE);
+			}
+			ImgEncryptor ie = new ImgEncryptor();
+			try {
+				ie.compress();
+				String txt ="<html>" +
+						"<p>imges.dat was created/ updated!</p>" +
+						"</html>";
+				JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
+						JOptionPane.PLAIN_MESSAGE);
+			} catch (IOException e1) {
+				String txt ="<html>" +
+						"<p>I hop that u named the png right!</p>" +
+						"<p>if not run ScRR w/ command line and send me the output!</p>" +
+						"</html>";
+				JOptionPane.showMessageDialog(null, txt, "MAKE imges.dat",
+						JOptionPane.PLAIN_MESSAGE);
+				e1.printStackTrace();
+			}
 		}
 	}
 
@@ -248,7 +273,12 @@ public class ScRR extends JFrame {
 		menu.add(menuitem);
 		menuitem.addActionListener(menuListner);
 		
+		menuitem = new JMenuItem("make imges.dat");
+		menu.add(menuitem);
+		menuitem.addActionListener(menuListner);		
+		
 		menu.addSeparator(); // Separator line
+		
 
 		menuitem = new JMenuItem("Exit");
 		menu.add(menuitem);
@@ -302,7 +332,7 @@ public class ScRR extends JFrame {
 		
 		jB_rand.setFocusable(false);
 		jL_m.setIcon(img_race);
-		setJlImage(rand.roll());
+		setJlImage(rand.getValue());
 	}
 	
 	
