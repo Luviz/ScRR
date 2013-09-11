@@ -19,7 +19,6 @@
 			<p style="color:gold;">The count was <font color = "red">7</font> when they put the pool down</p>
 		</html>	
 	</txt>
-	
 </item>
 
 <item>
