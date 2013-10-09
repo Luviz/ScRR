@@ -72,25 +72,17 @@ public class Strategies {
 		return tStrats;
 	}
 
-
-
 	public ArrayList<Strat> getzStrats() {
 		return zStrats;
 	}
-
-
 
 	public ArrayList<Strat> getpStrats() {
 		return pStrats;
 	}
 
-	
-
 	public ArrayList<Strat> getrStrats() {
 		return rStrats;
 	}
-
-
 
 	public void add(String race ,String type ,String txt){
 		race = race.toUpperCase();
@@ -120,49 +112,49 @@ public class Strategies {
 
 		BufferedReader in = null;
 		String line;
-			in =new BufferedReader(new FileReader(fName));
-			while ((line = in.readLine()) != null){
-				//System.out.println("l: "+line);
-				if (line.contains("<item>")){
-					String race ="" , type="" , txt="";
-					while ( !line.contains("</item>")){
-					
-						line = in.readLine();
-						String temp ;
-						int fristPos, lastPos;
-						if (line.contains("<race>")){
-							
-							fristPos = line.indexOf("<race>");
-							lastPos = line.indexOf("</race>");
-							temp = line.substring(fristPos+6, lastPos);
-							//System.out.println("r: "+temp);
-							race = temp;
-							
-						}else if (line.contains("<type>")){
-							
-							fristPos = line.indexOf("<type>");
-							lastPos = line.indexOf("</type>");
-							temp = line.substring(fristPos+6, lastPos);
-							//System.out.println("t: "+temp);
-							type = temp;
-							
-						}else if (line.contains("<txt>")){
-							while (!line.contains("</txt>")){
-								line = in.readLine();
-								txt = txt + line;
-							}
-							txt = txt.replaceAll("</txt>", "");
-							txt = txt.replaceAll("\t", "");
-							//System.out.println("text: "+txt);
-							
+			
+		in = new BufferedReader(new FileReader(fName));
+		while ((line = in.readLine()) != null) {
+			// System.out.println("l: "+line);
+			if (line.contains("<item>")) {
+				String race = "", type = "", txt = "";
+				while (!line.contains("</item>")) {
+
+					line = in.readLine();
+					String temp;
+					int fristPos, lastPos;
+					if (line.contains("<race>")) {
+
+						fristPos = line.indexOf("<race>");
+						lastPos = line.indexOf("</race>");
+						temp = line.substring(fristPos + 6, lastPos);
+						// System.out.println("r: "+temp);
+						race = temp;
+
+					} else if (line.contains("<type>")) {
+
+						fristPos = line.indexOf("<type>");
+						lastPos = line.indexOf("</type>");
+						temp = line.substring(fristPos + 6, lastPos);
+						// System.out.println("t: "+temp);
+						type = temp;
+
+					} else if (line.contains("<txt>")) {
+						while (!line.contains("</txt>")) {
+							line = in.readLine();
+							txt = txt + line;
 						}
-						
+						txt = txt.replaceAll("</txt>", "");
+						txt = txt.replaceAll("\t", "");
+						// System.out.println("text: "+txt);
+
 					}
-					add(race, type, txt);
+
 				}
+				add(race, type, txt);
 			}
+		}
 
 	}
-	
-	
+
 }
