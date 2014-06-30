@@ -1,4 +1,4 @@
-package mainpkg;
+package ScRR;
 
 public class Main {
 

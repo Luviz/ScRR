@@ -1,4 +1,4 @@
-package mainpkg;
+package ScRR;
 
 import java.awt.event.*;
 import java.io.FileNotFoundException;

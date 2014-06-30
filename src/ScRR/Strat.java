@@ -1,4 +1,4 @@
-package mainpkg;
+package ScRR;
 
 public class Strat {
 	private String race;	//terran protuss zerg overall
